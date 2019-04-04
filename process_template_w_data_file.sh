@@ -26,10 +26,9 @@ FIELDS=$(head -n1 "$DATA")
 ! [[ "$FIELDS" =~ ^[[:alnum:][:blank:]_-]*$ ]] && echo "Bad header in $DATA" && exit 0
 
 
-SED_CMD="sed"
-
 while read $FIELDS
 do
+  SED_CMD="sed"
   for FIELD in $FIELDS
   do
     [[ $DEBUG -eq 0 ]] && echo "## ${FIELD}=${!FIELD}"
